@@ -11,7 +11,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            // "pythonPath": "/home/dominika_malinowska/.cache/pypoetry/virtualenvs/ps-predictions-GVzP0fcp-py3.9/bin/python",
+            "pythonPath": "${workspaceFolder}/.venv/bin/python",
+            "cwd": "${workspaceFolder}",
         }
     ]
 }

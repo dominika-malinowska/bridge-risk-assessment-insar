@@ -20,9 +20,11 @@ The script generates prediction chips and saves them
 as a geotiff file.
 """
 
+# +
 # check Python version (3.9 needed)
-# !python --version # jupyter
+# # !python --version # jupyter
 # import platform
+# -
 
 # Import modules
 import os

@@ -43,9 +43,9 @@ warnings.filterwarnings("ignore", ".*does not have many workers.*")
 # Set up parameters
 
 # Path for saving results (such as model checkpoints)
-path_prefix = "/mnt/d/ML_model_data_paper/testing_new_strucutre"
+path_prefix = "/mnt/c/Users/Dominika/Desktop/Code_for_AWS_data/ps_predictions_code_for_publishing/traininig_output"
 
-experiment_name = "pixel_wise_regression_model_training_test_new_structure"
+experiment_name = "pixel_wise_regression_model_training_01042025"
 experiment_dir = os.path.join(path_prefix, experiment_name)
 print(experiment_dir)
 

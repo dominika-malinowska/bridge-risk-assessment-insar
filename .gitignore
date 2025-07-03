@@ -1,4 +1,6 @@
-trained_model/*
-traininig_output/*
+
 .venv
 .vscode
+
+__pycache__
+*.pyc

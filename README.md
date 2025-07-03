@@ -10,19 +10,14 @@ To install a Python environment, use Poetry, which will use the poetry.lock and 
 poetry install
 ```
 
+The code requires also the osmconvert and aws cli to be installed for downloading the required data. Installation instructions can be found here: 
+- [osmconvert installation](https://wiki.openstreetmap.org/wiki/Osmconvert) (note: install in /usr/bin/osmconvert or update osm_convert_path in predict_PS_for_region.ipynb)
+- [aws cli installation](https://aws.amazon.com/cli/)
+
+
 ## Usage
 
-```python
-import foobar
-
-# returns 'words'
-foobar.pluralize('word')
-
-# returns 'geese'
-foobar.pluralize('goose')
-
-# returns 'phenomenon'
-foobar.singularize('phenomena')
+ps_predict/predict_PS_dens.ipynb can be used to generate PS predictions
 
 
 ## License

@@ -1,4 +1,4 @@
-trained_model/seed_54321_20231214-203338.ckpt
-traininig_output/
+trained_model/*
+traininig_output/*
 .venv
 .vscode

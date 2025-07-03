@@ -2787,6 +2787,22 @@ files = [
 test = ["enum34", "ipaddress", "mock", "pywin32", "wmi"]
 
 [[package]]
+name = "ptitprince"
+version = "0.2.7"
+description = "A Python implementation of Rainclouds, originally on R, ggplot2. Written on top of seaborn."
+optional = false
+python-versions = "*"
+files = [
+    {file = "ptitprince-0.2.7.tar.gz", hash = "sha256:bbd19d4f8615935ac1b750651907303913fbdddc3fe864c1cb80faa3a2a3acfb"},
+]
+
+[package.dependencies]
+matplotlib = "*"
+numpy = ">=1.20"
+scipy = "*"
+seaborn = "0.11"
+
+[[package]]
 name = "ptyprocess"
 version = "0.7.0"
 description = "Run a subprocess in a pseudo terminal"
@@ -3857,24 +3873,20 @@ test = ["Cython", "array-api-strict", "asv", "gmpy2", "hypothesis (>=6.30)", "me
 
 [[package]]
 name = "seaborn"
-version = "0.13.2"
-description = "Statistical data visualization"
+version = "0.11.0"
+description = "seaborn: statistical data visualization"
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.6"
 files = [
-    {file = "seaborn-0.13.2-py3-none-any.whl", hash = "sha256:636f8336facf092165e27924f223d3c62ca560b1f2bb5dff7ab7fad265361987"},
-    {file = "seaborn-0.13.2.tar.gz", hash = "sha256:93e60a40988f4d65e9f4885df477e2fdaff6b73a9ded434c1ab356dd57eefff7"},
+    {file = "seaborn-0.11.0-py3-none-any.whl", hash = "sha256:62439a38482decdb263a8339f54ecb9823995ad8716abc830e91ca0753201e70"},
+    {file = "seaborn-0.11.0.tar.gz", hash = "sha256:390f8437b14f5ce845062f2865ad51656464c306d09bb97d7764c6cba1dd607c"},
 ]
 
 [package.dependencies]
-matplotlib = ">=3.4,<3.6.1 || >3.6.1"
-numpy = ">=1.20,<1.24.0 || >1.24.0"
-pandas = ">=1.2"
-
-[package.extras]
-dev = ["flake8", "flit", "mypy", "pandas-stubs", "pre-commit", "pytest", "pytest-cov", "pytest-xdist"]
-docs = ["ipykernel", "nbconvert", "numpydoc", "pydata_sphinx_theme (==0.10.0rc2)", "pyyaml", "sphinx (<6.0.0)", "sphinx-copybutton", "sphinx-design", "sphinx-issues"]
-stats = ["scipy (>=1.7)", "statsmodels (>=0.12)"]
+matplotlib = ">=2.2"
+numpy = ">=1.15"
+pandas = ">=0.23"
+scipy = ">=1.0"
 
 [[package]]
 name = "segmentation-models-pytorch"
@@ -4745,4 +4757,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "~3.10.0"
-content-hash = "a6cfc290182a271e3e1b8ae2530b5b0c251847cbd879c26ed101bdb76f61aa20"
+content-hash = "8f65fd4a088c3296bc0fad097e283796f54dac7ecace8d0ef88a18d9da92f60b"

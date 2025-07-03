@@ -17,7 +17,16 @@ The code requires also the osmconvert and aws cli to be installed for downloadin
 
 ## Usage
 
-ps_predict/predict_PS_dens.ipynb can be used to generate PS predictions
+1) PS predictions
+- ps_predictions/predict_PS_dens.ipynb can be used to generate PS predictions for small regions
+- however, as those can be quite time consuming, subsequent steps make used of already produced PS predictions that can be download from data repository on zenodo ([Global Geo-hazard Risk Assessment of Long-Span Bridges Enhanced with InSAR Availability - research data](10.5281/zenodo.15797030)) 
+
+
+2) Risk calculations
+
+
+3) Paper figures
+To reproduce plots from the paper, one can use the src/plots_for_paper/generate_plots.ipynb notebook. It makes use of plots source data published in [zenodo repository](10.5281/zenodo.15797030), but the data can be reproduced with the risk calculation scripts.
 
 
 ## License

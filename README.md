@@ -10,7 +10,7 @@ To install a Python environment, use Poetry, which will use the poetry.lock and 
 poetry install
 ```
 
-The code requires also the osmconvert and aws cli to be installed for downloading the required data. Installation instructions can be found here: 
+The code requires also the osmconvert and aws cli to be installed for downloading the required datasets. Installation instructions can be found here: 
 - [osmconvert installation](https://wiki.openstreetmap.org/wiki/Osmconvert) (note: install in /usr/bin/osmconvert or update osm_convert_path in predict_PS_for_region.ipynb)
 - [aws cli installation](https://aws.amazon.com/cli/)
 
@@ -23,9 +23,33 @@ The code requires also the osmconvert and aws cli to be installed for downloadin
 
 
 2) Risk calculations
+- first, risk_assessment/bridges_db/process_bridges_db.py should be run. It requires the long-span bridges database, available on request from authors of the associated [paper](https://doi.org/10.1080/15732479.2019.1639773). The dataset should be placed in data/bridge_db. The processing might take quite a lot of time. 
 
+'''python
+../.venv/bin/python -m risk_assessment.bridges_db.process_bridges_db
+
+- then, once the bridge geometries are generated, they should be divided into segments with risk_assessment/bridges_db/divide_into_segments.py 
+
+'''python
+../.venv/bin/python -m risk_assessment.bridges_db.divide_into_segments 
+
+- next, zonal statistics should be generated with:
+
+'''python
+ ../.venv/bin/python -m risk_assessment.bridges_db.get_zonal_stats_from_bridge_lines
+
+- finally, data can be analysed with the following code to produce final risk scores
+
+'''python
+ ../.venv/bin/python -m risk_assessment.risk_calculation.lsb_risk_analysis 
+
+- to get source data for plots the following should be run: 
+
+'''python
+ ../.venv/bin/python -m risk_assessment.risk_calculation.plots_source_data_generation 
 
 3) Paper figures
+
 To reproduce plots from the paper, one can use the src/plots_for_paper/generate_plots.ipynb notebook. It makes use of plots source data published in [zenodo repository](10.5281/zenodo.15797030), but the data can be reproduced with the risk calculation scripts.
 
 

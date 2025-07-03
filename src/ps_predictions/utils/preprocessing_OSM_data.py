@@ -2,10 +2,6 @@
 This script can be used to preprocess OSM data for use in a machine learning model.
 """
 
-# check Python version (3.9 needed)
-# !python --version # jupyter
-import platform
-
 # Import modules
 import os
 
@@ -13,8 +9,6 @@ import osmium
 
 import shapely
 import shapely.wkb as wkblib
-
-print(f"Python version {platform.python_version()}")
 
 
 class BuildRoadRailHandler(osmium.SimpleHandler):

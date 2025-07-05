@@ -25,33 +25,33 @@ The code requires also the osmconvert and aws cli to be installed for downloadin
 2) Risk calculations
 - first, the raw bridge database should be processed with risk_assessment/bridges_db/process_bridges_db.py to identify bridge shapes. It requires the long-span bridges database csv file, available on request from authors of the associated [paper](https://doi.org/10.1080/15732479.2019.1639773). The dataset should be placed in data/bridge_db. The processing might take quite a lot of time. 
 
-'''python
+```bash
 ../.venv/bin/python -m risk_assessment.bridges_db.process_bridges_db
-'''
+```
 
 - then, once the bridge geometries are generated, they should be divided into segments with risk_assessment/bridges_db/divide_into_segments.py 
 
-'''python
+```bash
 ../.venv/bin/python -m risk_assessment.bridges_db.divide_into_segments 
-'''
+```
 
 - next, zonal statistics regarding PS avaialbility, Sentinel availability, hazards, exposure and vulnerability should be generated with:
 
-'''python
+```bash
  ../.venv/bin/python -m risk_assessment.bridges_db.get_zonal_stats_from_bridge_lines
-'''
+```
 
 - finally, data can be analysed with the following code to produce final risk scores
 
-'''python
+```bash
  ../.venv/bin/python -m risk_assessment.risk_calculation.lsb_risk_analysis 
-'''
+```
 
 - to get source data for plots the following should be run: 
 
-'''python
+```bash
  ../.venv/bin/python -m risk_assessment.risk_calculation.plots_source_data_generation 
-'''
+```
 
 3) Paper figures
 

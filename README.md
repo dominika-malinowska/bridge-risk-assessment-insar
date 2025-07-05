@@ -1,4 +1,5 @@
 # Global Geo-hazard Risk Assessment of Long-Span Bridges Enhanced with InSAR Availability
+[![DOI](https://zenodo.org/badge/958456340.svg)](https://doi.org/10.5281/zenodo.15814218)
 
 This repository contains code required to reproduce results for the paper entitled "Global Geo-hazard Risk Assessment of Long-Span Bridges Enhanced with InSAR Availability" (currently in review)
 

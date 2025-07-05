@@ -1056,3 +1056,51 @@ if __name__ == "__main__":
         os.path.join(plots_source_data_path, "fig7b_map_snt_availability_change.csv"),
         index=False,
     )
+
+    # ====================================================
+    # Create monitoring factor sensitivity analysis data
+    # ====================================================
+    # Define the factors to analyze
+    factors = [1.15, 1.25, 1.35, 1.45, 1.55]
+
+    # Initialize a dictionary to store data from all factors
+    sensitivity_data = {}
+
+    # Read data for each factor
+    for factor in factors:
+        # Read the bridges gdf from pickle for this factor
+        factor_bridges_gdf = pd.read_pickle(
+            os.path.join(results_path, f"lsb_risk_analysis_filtered_{factor}.pkl")
+        )
+
+        # Remove bridge with ID 755 (same as main analysis)
+        factor_bridges_gdf = factor_bridges_gdf[factor_bridges_gdf["ID"] != 755]
+
+        # Store the risk values for this factor
+        sensitivity_data[str(factor)] = factor_bridges_gdf.set_index("ID")[
+            "Multi-hazard_risk_com"
+        ]
+
+        # Store ID and Region from the first iteration (they should be the same across all files)
+        if factor == factors[0]:
+            base_data = factor_bridges_gdf[["ID", "Region"]].copy()
+
+    # Create the sensitivity analysis dataframe
+    sensitivity_df = base_data.copy()
+
+    # Add risk columns for each factor
+    for factor in factors:
+        sensitivity_df[str(factor)] = sensitivity_df["ID"].map(
+            sensitivity_data[str(factor)]
+        )
+
+    # Sort by ID for consistency
+    sensitivity_df = sensitivity_df.sort_values("ID").reset_index(drop=True)
+
+    # Save the sensitivity analysis data
+    sensitivity_df.to_csv(
+        os.path.join(
+            plots_source_data_path, "figSup5_monitoring_factor_sensitivity.csv"
+        ),
+        index=False,
+    )

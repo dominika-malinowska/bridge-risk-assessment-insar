@@ -539,24 +539,24 @@ if __name__ == "__main__":
             :, ~bridges_gdf.columns.str.contains("{}".format(continent))
         ]
 
-    # Write the GeoDataFrame to a new CSV file
-    bridges_gdf.to_csv(
-        os.path.join(
-            data_path,
-            results_path,
-            f"lsb_risk_analysis_{MAX_MONITORING_COEFFICIENT}.csv",
-        ),
-        index=False,
-    )
+    # # Write the GeoDataFrame to a new CSV file
+    # bridges_gdf.to_csv(
+    #     os.path.join(
+    #         data_path,
+    #         results_path,
+    #         f"lsb_risk_analysis_{MAX_MONITORING_COEFFICIENT}.csv",
+    #     ),
+    #     index=False,
+    # )
 
-    # Write the GeoDataFrame to a pickle
-    bridges_gdf.to_pickle(
-        os.path.join(
-            data_path,
-            results_path,
-            f"lsb_risk_analysis_{MAX_MONITORING_COEFFICIENT}.pkl",
-        )
-    )
+    # # Write the GeoDataFrame to a pickle
+    # bridges_gdf.to_pickle(
+    #     os.path.join(
+    #         data_path,
+    #         results_path,
+    #         f"lsb_risk_analysis_{MAX_MONITORING_COEFFICIENT}.pkl",
+    #     )
+    # )
 
     # List of columns to keep
     columns_to_keep = [
@@ -637,38 +637,38 @@ if __name__ == "__main__":
         )
     )
 
-    # Write the GeoDataFrame to a shapefile
-    columns_to_keep = [
-        "ID",
-        "geometry",
-        "Monitoring_PS_availability_only",
-        "Monitoring_1_PS_availability_only",
-        "Monitoring_2_PS_availability_only",
-        "Monitoring_3_PS_availability_only",
-        "Monitoring_4_PS_availability_only",
-        "Monitoring_5_PS_availability_only",
-        "Monitoring_2sc",
-    ]
+    # # Write the GeoDataFrame to a shapefile
+    # columns_to_keep = [
+    #     "ID",
+    #     "geometry",
+    #     "Monitoring_PS_availability_only",
+    #     "Monitoring_1_PS_availability_only",
+    #     "Monitoring_2_PS_availability_only",
+    #     "Monitoring_3_PS_availability_only",
+    #     "Monitoring_4_PS_availability_only",
+    #     "Monitoring_5_PS_availability_only",
+    #     "Monitoring_2sc",
+    # ]
 
-    filtered_bridges_gdf = filtered_bridges_gdf[columns_to_keep]
+    # filtered_bridges_gdf = filtered_bridges_gdf[columns_to_keep]
 
-    rename_dict = {
-        "Monitoring_PS_availability_only": "M_PS_only",
-        "Monitoring_1_PS_availability_only": "M_1_PS_only",
-        "Monitoring_2_PS_availability_only": "M_2_PS_only",
-        "Monitoring_3_PS_availability_only": "M_3_PS_only",
-        "Monitoring_4_PS_availability_only": "M_4_PS_only",
-        "Monitoring_5_PS_availability_only": "M_5_PS_only",
-        "Monitoring_2sc": "M_2sc",
-    }
+    # rename_dict = {
+    #     "Monitoring_PS_availability_only": "M_PS_only",
+    #     "Monitoring_1_PS_availability_only": "M_1_PS_only",
+    #     "Monitoring_2_PS_availability_only": "M_2_PS_only",
+    #     "Monitoring_3_PS_availability_only": "M_3_PS_only",
+    #     "Monitoring_4_PS_availability_only": "M_4_PS_only",
+    #     "Monitoring_5_PS_availability_only": "M_5_PS_only",
+    #     "Monitoring_2sc": "M_2sc",
+    # }
 
-    # Rename the columns
-    filtered_bridges_gdf = filtered_bridges_gdf.rename(columns=rename_dict)
+    # # Rename the columns
+    # filtered_bridges_gdf = filtered_bridges_gdf.rename(columns=rename_dict)
 
-    filtered_bridges_gdf.to_file(
-        os.path.join(
-            data_path,
-            results_path,
-            f"lsb_risk_analysis_{MAX_MONITORING_COEFFICIENT}.shp",
-        )
-    )
+    # filtered_bridges_gdf.to_file(
+    #     os.path.join(
+    #         data_path,
+    #         results_path,
+    #         f"lsb_risk_analysis_{MAX_MONITORING_COEFFICIENT}.shp",
+    #     )
+    # )

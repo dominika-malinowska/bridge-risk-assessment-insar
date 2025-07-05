@@ -6,7 +6,9 @@ authors = ["Dominika Malinowska"]
 license = "MIT"
 readme = "README.md"
 packages = [
-    { include = "ps_predictions", from = "src" }
+    { include = "ps_predictions", from = "src" },
+    { include = "utils", from = "src" }
+
 ]
 
 [tool.poetry.dependencies]
